@@ -1,0 +1,81 @@
+{
+  "name": "webfonts-generator-cli",
+  "version": "0.0.1",
+  "author": "Pierig Philippe",
+  "description": "Command line client for webfonts-generator",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yopfull/webfonts-generator-cli.git"
+  },
+  "homepage": "https://github.com/yopfull/webfonts-generator-cli#readme",
+  "bugs": {
+    "url": "https://github.com/yopfull/webfonts-generator-cli/issues"
+  },
+  "main": "lib/js/",
+  "bin": {
+    "webfonts-generator-cli": "./lib/index.js"
+  },
+  "scripts": {
+    "build": "rm -rf ./lib/* && ./node_modules/.bin/babel src --out-dir lib",
+    "start": "./node_modules/.bin/babel src --out-dir lib --watch src",
+    "lint": "./node_modules/.bin/eslint ./src || true",
+    "lint-fix": "./node_modules/.bin/eslint ./src || true",
+    "test": "mocha --require @babel/register --require @babel/polyfill --recursive",
+    "coverage": "nyc mocha --require @babel/register --require @babel/polyfill --timeout=3000 --recursive"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.0.0",
+    "@babel/polyfill": "^7.2.5",
+    "@babel/preset-env": "^7.0.0",
+    "@babel/register": "^7.0.0",
+    "babel-eslint": "^10.0.1",
+    "chai": "^4.2.0",
+    "eslint": "^5.12.0",
+    "eslint-config-google": "0.11.0",
+    "eslint-config-prettier": "3.5.0",
+    "eslint-config-standard": "12.0.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-node": "^8.0.1",
+    "eslint-plugin-promise": "^4.0.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "mocha": "^5.2.0",
+    "nyc": "^13.1.0",
+    "prettier": "1.15.3",
+    "rewire": "^4.0.1",
+    "rimraf": "^2.6.3",
+    "sinon": "^7.2.2"
+  },
+  "dependencies": {
+    "minimist": "^1.2.0",
+    "webfonts-generator": "^0.4.0"
+  },
+  "keywords": [],
+  "peerDependencies": {},
+  "nyc": {
+    "check-coverage": true,
+    "per-file": true,
+    "lines": 100,
+    "statements": 90,
+    "functions": 100,
+    "branches": 100,
+    "include": [
+      "src/**/*.js"
+    ],
+    "exclude": [
+      "src/index.js"
+    ],
+    "ignore-class-method": "methodToIgnore",
+    "reporter": [
+      "lcov",
+      "text-summary"
+    ],
+    "extension": [
+      ".js"
+    ],
+    "cache": true,
+    "all": true,
+    "report-dir": "./coverage"
+  }
+}

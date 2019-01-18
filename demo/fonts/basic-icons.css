@@ -1,0 +1,48 @@
+@font-face {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: "basic-icons";
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  src: url('./basic-icons/basic-icons.eot'); /* IE9 Compat Modes */
+  src: url('./basic-icons/basic-icons.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('./basic-icons/basic-icons.woff') format('woff'), /* Pretty Modern Browsers */
+       url('./basic-icons/basic-icons.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('./basic-icons/basic-icons.svg#svgFontName') format('svg'); /* Legacy iOS */
+}
+
+.icon {
+  font-family: "basic-icons";
+}
+
+.icon-x16-app::before {
+  content: "\f101";
+}
+.icon-x16-platform-ios::before {
+  content: "\f102";
+}
+.icon-x16-platform-mobileweb::before {
+  content: "\f103";
+}
+.icon-x24-platform-android::before {
+  content: "\f104";
+}
+.icon-x24-platform-ios::before {
+  content: "\f105";
+}
+.icon-x24-platform-mobileweb::before {
+  content: "\f106";
+}
+.icon-x36-linkedin::before {
+  content: "\f107";
+}
+.icon-x36-twitter::before {
+  content: "\f108";
+}

@@ -1,0 +1,48 @@
+@font-face {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: "advanced-icons";
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  src: url('./advanced-icons/advanced-icons.eot'); /* IE9 Compat Modes */
+  src: url('./advanced-icons/advanced-icons.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('./advanced-icons/advanced-icons.woff') format('woff'), /* Pretty Modern Browsers */
+       url('./advanced-icons/advanced-icons.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('./advanced-icons/advanced-icons.svg#svgFontName') format('svg'); /* Legacy iOS */
+}
+
+.icon {
+  font-family: "advanced-icons";
+}
+
+.wfg-cli-x16-app::before {
+  content: "\f165";
+}
+.wfg-cli-x16-platform-mobileweb::before {
+  content: "\f166";
+}
+.wfg-cli-x24-platform-android::before {
+  content: "\f167";
+}
+.wfg-cli-x24-platform-mobileweb::before {
+  content: "\f168";
+}
+.wfg-cli-x36-twitter::before {
+  content: "\f169";
+}
+.wfg-cli-x16-platform-ios::before {
+  content: "\f101";
+}
+.wfg-cli-x24-platform-ios::before {
+  content: "\f102";
+}
+.wfg-cli-x36-linkedin::before {
+  content: "\f103";
+}

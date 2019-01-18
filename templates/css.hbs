@@ -1,0 +1,29 @@
+@font-face {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: "{{fontName}}";
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  src: url('./{{fontName}}/{{fontName}}.eot'); /* IE9 Compat Modes */
+  src: url('./{{fontName}}/{{fontName}}.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('./{{fontName}}/{{fontName}}.woff') format('woff'), /* Pretty Modern Browsers */
+       url('./{{fontName}}/{{fontName}}.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('./{{fontName}}/{{fontName}}.svg#svgFontName') format('svg'); /* Legacy iOS */
+}
+
+.{{baseSelector}} {
+  font-family: "{{fontName}}";
+}
+
+{{#each codepoints}}
+.{{../classPrefix}}{{@key}}::before {
+  content: "\\{{this}}";
+}
+{{/each}}
