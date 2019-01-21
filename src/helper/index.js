@@ -71,9 +71,9 @@ export const generateCodepointsBackup = function (config: Config) {
 
 export const getCodePointsFromJson = function (filePath: string): CodePoints {
   // Read content of css file and
-  let codepoints:CodePoints = {}
+  let codepoints: CodePoints = {}
   if (fs.existsSync(filePath)) {
-    const json = fs.readFileSync(filePath, {encoding: 'utf-8'})
+    const json = fs.readFileSync(filePath, { encoding: 'utf-8' })
     try {
       codepoints = JSON.parse(json)
     } catch (e) {

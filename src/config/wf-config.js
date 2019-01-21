@@ -5,7 +5,6 @@ import path from 'path'
 import { getCodePointsFromJson } from '../helper'
 import type { Config, Options, WebfontsGeneratorOptions } from '../helper'
 
-
 /**
  * Responsible for merging the default font configuration and the overrides
  * specified by the user through the CLI args

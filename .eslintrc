@@ -1,4 +1,12 @@
 {
-  "extends": "standard",
-  "excludedFiles": "*/**/**/test.js"
+  "extends": ["standard"],
+  "parser": "babel-eslint",
+  "settings": {
+    "ecmascript": 6
+  },
+  "rules": {
+    "flowtype/define-flow-type": 1,
+    "flowtype/use-flow-type": 1
+  },
+  "plugins": ["flowtype"]
 }

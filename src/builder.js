@@ -4,7 +4,7 @@ import webfontsGenerator from 'webfonts-generator'
 import glob from 'glob'
 
 import { generateCodepointsBackup } from './helper'
-import type { Config, Options, WebfontsGeneratorOptions } from './helper'
+import type { Config, WebfontsGeneratorOptions } from './helper'
 
 export type BuildResult = string | {
   success: boolean,
@@ -19,7 +19,7 @@ export type BuildResult = string | {
       generateCss?: Function,
     }
   },
-  error?: {code: string, message: string},
+  error?: { code: string, message: string },
 }
 
 /**
@@ -50,13 +50,13 @@ These are all the available arguments:
     `)
   }
   try {
-    const webFonstOptions:WebfontsGeneratorOptions = setWebFontOptions(config)
+    const webFonstOptions: WebfontsGeneratorOptions = setWebFontOptions(config)
     const result = await generateDcsIconFont(webFonstOptions)
     await generateCodepointsBackup(config)
     return result
   } catch (error) {
     console.error(error.message)
-    return {success: false, error}
+    return { success: false, error }
   }
 }
 
@@ -78,7 +78,7 @@ function setWebFontOptions (config: Config) {
       'Is not possible to generate a HTML preview for SASS outputs'
     )
   }
-  const options:WebfontsGeneratorOptions = Object.assign({}, config.webfontsOptions)
+  const options: WebfontsGeneratorOptions = Object.assign({}, config.webfontsOptions)
   options.files = files
   return options
 }
