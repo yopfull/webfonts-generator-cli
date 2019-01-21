@@ -1,0 +1,68 @@
+$line-height: normal;
+$font-height: 1em;
+
+@font-face {
+	font-family: "sass-icons";
+	src: url("sass-icons/sass-icons.eot?4937be0a6a6731678b53ea66208a02b8?#iefix") format("embedded-opentype"),
+url("sass-icons/sass-icons.woff?4937be0a6a6731678b53ea66208a02b8") format("woff"),
+url("sass-icons/sass-icons.ttf?4937be0a6a6731678b53ea66208a02b8") format("truetype");
+}
+
+.icon {
+	line-height: $line-height;
+	font-size: $font-height;
+
+  &::before {
+  	font-family: sass-icons !important;
+  	font-style: normal;
+  	font-weight: normal !important;
+  	vertical-align: top;
+  }
+
+  $icon-sizes: (
+    "sm": 1em,
+    "1-5x": 1.5em,
+    "2x": 2em,
+    "3x": 3em,
+    "4x": 4em,
+  );
+
+  @each $key, $size in $icon-sizes {
+    &.icon-#{$key} {
+      font-size: $size;
+    }
+  }
+
+  &.wfg-cli-x16-app::before {
+  	content: "\f101";
+  }
+
+  &.wfg-cli-x16-platform-ios::before {
+  	content: "\f102";
+  }
+
+  &.wfg-cli-x16-platform-mobileweb::before {
+  	content: "\f103";
+  }
+
+  &.wfg-cli-x24-platform-android::before {
+  	content: "\f104";
+  }
+
+  &.wfg-cli-x24-platform-ios::before {
+  	content: "\f105";
+  }
+
+  &.wfg-cli-x24-platform-mobileweb::before {
+  	content: "\f106";
+  }
+
+  &.wfg-cli-x36-linkedin::before {
+  	content: "\f107";
+  }
+
+  &.wfg-cli-x36-twitter::before {
+  	content: "\f108";
+  }
+
+}
