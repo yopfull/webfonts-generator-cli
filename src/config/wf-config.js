@@ -1,6 +1,10 @@
+// @flow
+
 import path from 'path'
 
 import { getCodePointsFromJson } from '../helper'
+import type { Config, Options, WebfontsGeneratorOptions } from '../helper'
+
 
 /**
  * Responsible for merging the default font configuration and the overrides
@@ -8,7 +12,7 @@ import { getCodePointsFromJson } from '../helper'
  * @param  {Object} customOpts the options specified by the user
  * @return {Object} the resulting configuration for the webfont generator
  */
-export const getConfig = function (opts) {
+export const getConfig = function (opts: Options): Config {
   const customOpts = opts || {}
   const buildPath = customOpts.out || './build'
   const fontName = customOpts.fontName || 'wfgIconFont'
@@ -20,7 +24,7 @@ export const getConfig = function (opts) {
   const sassTemplate = customOpts.scssTemplate ? customOpts.scssTemplate : `${__dirname}/../../templates/scss.hbs`
   const cssTemplate = customOpts.cssTemplate ? customOpts.cssTemplate : `${__dirname}/../../templates/css.hbs`
 
-  const webfontsOptions = {
+  const webfontsOptions: WebfontsGeneratorOptions = {
     dest: `${buildPath}/${fontName}`,
     cssDest: `${cssDest}/${fontName}.${cssExt}`,
     cssFontsUrl: customOpts.cssFontsUrl || fontName,

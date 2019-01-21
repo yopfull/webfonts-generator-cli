@@ -1,16 +1,34 @@
+// @flow
+
 import webfontsGenerator from 'webfonts-generator'
 import glob from 'glob'
 
 import { generateCodepointsBackup } from './helper'
+import type { Config, Options, WebfontsGeneratorOptions } from './helper'
+
+export type BuildResult = string | {
+  success: boolean,
+  result?: {
+    success: boolean,
+    result: {
+      svg?: string,
+      ttf?: Buffer,
+      woff?: Buffer,
+      woff2?: Buffer,
+      eot?: Buffer,
+      generateCss?: Function,
+    }
+  },
+  error?: {code: string, message: string},
+}
 
 /**
  * Responsible for the generation of the icon font
- * @param  {Object} config - an object containing all the needed options for the webfont generator.
+ * @param  {Object} options - an object containing all the needed options for the webfont generator.
  * @return {Object} a successful response or an error in case it occurs
  */
-async function build (config) {
+async function build (config: Config) {
   // if it is a --help access
-  /* istanbul ignore if */
   if (config && config.customOpts && config.customOpts.help) {
     return Promise.resolve(`
 These are all the available arguments:
@@ -32,8 +50,8 @@ These are all the available arguments:
     `)
   }
   try {
-    const options = setWebFontOptions(config)
-    const result = await generateDcsIconFont(options)
+    const webFonstOptions:WebfontsGeneratorOptions = setWebFontOptions(config)
+    const result = await generateDcsIconFont(webFonstOptions)
     await generateCodepointsBackup(config)
     return result
   } catch (error) {
@@ -45,9 +63,9 @@ These are all the available arguments:
 /**
  * Responsible for evaluating the provided arguments (config) and, if valid,
  * set up the options for the webfont generator
- * @param {Object} config the configurations provided by the user through CLI arguments
+ * @param {Object} options the configurations provided by the user through CLI arguments
  */
-function setWebFontOptions (config) {
+function setWebFontOptions (config: Config) {
   const iconsPath = config.customOpts.icons || 'icons/*.svg'
   const files = glob.sync(iconsPath)
   if (!files.length) {
@@ -60,7 +78,7 @@ function setWebFontOptions (config) {
       'Is not possible to generate a HTML preview for SASS outputs'
     )
   }
-  const options = Object.assign({}, config.webfontsOptions)
+  const options:WebfontsGeneratorOptions = Object.assign({}, config.webfontsOptions)
   options.files = files
   return options
 }
@@ -70,7 +88,7 @@ function setWebFontOptions (config) {
  * @param  {Object} webfontsOptions the options for the webfont generator
  * @return {Object} a promise with the result of the generation
  */
-function generateDcsIconFont (webfontsOptions) {
+function generateDcsIconFont (webfontsOptions: WebfontsGeneratorOptions) {
   return new Promise((resolve, reject) => {
     webfontsGenerator(webfontsOptions, (error, result) => {
       if (error) {

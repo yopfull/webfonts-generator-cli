@@ -22,13 +22,15 @@
     "lint": "./node_modules/.bin/eslint ./src || true",
     "lint-fix": "./node_modules/.bin/eslint ./src || true",
     "test": "mocha --require @babel/register --require @babel/polyfill --recursive",
-    "coverage": "nyc mocha --require @babel/register --require @babel/polyfill --timeout=3000 --recursive"
+    "coverage": "nyc mocha --require @babel/register --require @babel/polyfill --timeout=3000 --recursive",
+    "flow-coverage": "flow-coverage-report -i 'src/**/*.js'"
   },
   "devDependencies": {
     "@babel/cli": "^7.2.3",
     "@babel/core": "^7.0.0",
     "@babel/polyfill": "^7.2.5",
     "@babel/preset-env": "^7.0.0",
+    "@babel/preset-flow": "^7.0.0",
     "@babel/register": "^7.0.0",
     "babel-eslint": "^10.0.1",
     "chai": "^4.2.0",
@@ -40,6 +42,8 @@
     "eslint-plugin-node": "^8.0.1",
     "eslint-plugin-promise": "^4.0.1",
     "eslint-plugin-standard": "^4.0.0",
+    "flow-bin": "^0.91.0",
+    "flow-coverage-report": "^0.6.1",
     "mocha": "^5.2.0",
     "nyc": "^13.1.0",
     "prettier": "1.15.3",
