@@ -5,6 +5,8 @@ A webfonts generator client that enables you to generate fonts from a set of SVG
 
 Broadly inspired by [dcs-icon-font](https://github.com/Exictos-DCS/dcs-icon-font)
 
+[![codecov](https://codecov.io/gh/yopfull/webfonts-generator-cli/branch/master/graph/badge.svg)](https://codecov.io/gh/yopfull/webfonts-generator-cli)
+
 ## Installation
 
 You can install it through NPM, simply run:
@@ -65,6 +67,7 @@ These are all the flags that you can use with the *webfonts-generator-cli* gener
 | --fixedWidth [bool]          | Option passed directly to [svgicons2svgfont]
 | --centerHorizontally [bool] | Option passed directly to [svgicons2svgfont]
 | --normalize [bool]          | Option passed directly to [svgicons2svgfont]
+| --descent [Number]          | Option passed directly to [svgicons2svgfont]
 | --fontHeight [Number]       | Option passed directly to [svgicons2svgfont]
 | --codepoints [string]       | Specify a custom codepoints json object to preserve or cucstomize icons hexa codes
 | --types [string]            | list of type separated by a coma  Default *svg,ttf,woff,woff2,eot*
