@@ -6,6 +6,8 @@ A webfonts generator client that enables you to generate fonts from a set of SVG
 Broadly inspired by [dcs-icon-font](https://github.com/Exictos-DCS/dcs-icon-font)
 
 [![codecov](https://codecov.io/gh/yopfull/webfonts-generator-cli/branch/master/graph/badge.svg)](https://codecov.io/gh/yopfull/webfonts-generator-cli)
+![flow-coverage](https://raw.githubusercontent.com/yopfull/webfonts-generator-cli/master/flow-coverage/flow-coverage-badge.svg)
+
 
 ## Installation
 
@@ -30,6 +32,10 @@ npm run build
 ```
 
 ## Usage
+
+```
+./node_modules/.bin/webfonts-generator-cli --icons my-svg-icons/*.svg
+```
 
 When installing from NPM globally, you can simply run:
 

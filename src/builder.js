@@ -6,7 +6,7 @@ import glob from 'glob'
 import { generateCodepointsBackup } from './helper'
 import type { Config, WebfontsGeneratorOptions } from './helper'
 
-export type BuildResult = string | {
+export type BuildResult = {
   success: boolean,
   result?: {
     success: boolean,
@@ -27,7 +27,7 @@ export type BuildResult = string | {
  * @param  {Object} options - an object containing all the needed options for the webfont generator.
  * @return {Object} a successful response or an error in case it occurs
  */
-async function build (config: Config) {
+async function build (config: Config): Promise<BuildResult | string> {
   // if it is a --help access
   if (config && config.customOpts && config.customOpts.help) {
     return Promise.resolve(`
@@ -55,7 +55,10 @@ These are all the available arguments:
     await generateCodepointsBackup(config)
     return result
   } catch (error) {
-    console.error(error.message)
+    /* istanbul ignore else */
+    if (error instanceof Error) {
+      console.error(error.message)
+    }
     return { success: false, error }
   }
 }

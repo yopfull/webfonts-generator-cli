@@ -23,7 +23,7 @@
     "lint-fix": "./node_modules/.bin/eslint ./src || true",
     "test": "./node_modules/.bin/eslint ./src || true || true && flow && mocha --require @babel/register --require @babel/polyfill --recursive",
     "coverage": "nyc mocha --require @babel/register --require @babel/polyfill --timeout=3000 --recursive",
-    "flow-coverage": "flow-coverage-report -i 'src/**/*.js'"
+    "flow-coverage": "flow-coverage-report -i 'src/**/*.js' -t html"
   },
   "devDependencies": {
     "@babel/cli": "^7.2.3",
@@ -63,9 +63,9 @@
     "check-coverage": true,
     "per-file": false,
     "lines": 100,
-    "statements": 90,
+    "statements": 100,
     "functions": 100,
-    "branches": 100,
+    "branches": 90,
     "include": [
       "src/**/*.js"
     ],
